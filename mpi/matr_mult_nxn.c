@@ -116,7 +116,7 @@ int main(int argc, char **argv) {
     local_finish = MPI_Wtime();
     local_elapsed = (local_finish - local_start) * 1000;
     MPI_Reduce(&local_elapsed, &elapsed, 1, MPI_DOUBLE,
-               MPI_MAX, 0, MPI_COMM_WORLD);
+               MPI_MAX, ROOT, MPI_COMM_WORLD);
     // Aika millisekunteina.
     if (id == ROOT)
         printf("%f\n", elapsed);
